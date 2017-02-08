@@ -43,7 +43,6 @@ export class AuthService {
       this.fbUser = user
       if (user) {
         this.fbUser = user
-
         console.log('auth: Firebase auth', user.uid)
         this.attemptLogin(user)
       } else if (!user) {
@@ -51,6 +50,7 @@ export class AuthService {
       }
     })
   }
+
   attemptLogin(user: firebase.User) {
     this.dataService.setFirebaseUser(user)
     this.isAuthorized = true
@@ -62,6 +62,7 @@ export class AuthService {
         this.isRegistered = true
         this.authEventsSub.next('newUser')
       } else {
+        this.user = userData
         this.authEventsSub.next('returningUser')
       }
     })
@@ -106,7 +107,7 @@ export class AuthService {
   // RegisterUser triggers loadUserData() which will eventually emit returningUser event
   // which app.component.ts will use to navigate to the app home (tabs)
   registerUser(userName: string, locale: string): firebase.Promise<any> {
-    let newUserData = {
+    this.user = {
       uid: this.fbUser.uid,
       userName: userName,
       locale: locale,
@@ -117,7 +118,7 @@ export class AuthService {
       uiLang: window.navigator.language
     }
     this.authEventsSub.next('returningUser')
-    return this.dataService.setUserData(newUserData).then(() => {
+    return this.dataService.setUserData(this.user).then(() => {
       // We do this because Google severely rate-limits access to the public profile image URL
       this.dataService.copyProfileImage()
     })

@@ -1,0 +1,25 @@
+<!--Popup fab mode-->
+<div *ngIf="mode === 'popup'" class="fabwrapper">
+  <ion-fab #fab>
+    <button ion-fab mini>
+      {{ langmap[translate.currentLang].fab }}
+    </button>
+    <ion-fab-list  side="down">
+      <button *ngFor="let language of languageList"
+          ion-fab mini 
+          (click)="selectLanguage(language)">
+        {{langmap[language].fab}}
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</div>
+<!--Fixed mode-->
+<div *ngIf="mode === 'fixed'" class="fixedfabwrapper">
+  <button *ngFor="let language of languageList" 
+      ion-fab mini
+      [color]="language === this.translate.currentLang ? 'primary' : 'favorite'"
+      (click)="selectLanguage(language)">
+      {{langmap[language].fab}}
+  </button>
+</div>
+

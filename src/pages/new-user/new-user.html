@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'NEWUSER.TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <locale-fab mode="fixed"></locale-fab> 
+
+    <div class="subheadp">{{ 'NEWUSER.SELECTUSER' | translate }}</div>
+    <div class="userlangrow">
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="username" (ionChange)="changed()"></ion-input>
+      </ion-item>
+    </div>
+      <div class="subheadp">{{ 'NEWUSER.TERMSHEAD' | translate }}</div>
+      <p *ngFor="let p of ['1','2']" class="paragraph">
+        {{ 'NEWUSER.TERMS' + p | translate }}
+      </p>
+      <ion-item>
+        <ion-label class="headline2">{{ 'NEWUSER.AGREE' | translate }}</ion-label>
+        <ion-checkbox [(ngModel)]="tickbox" (ionChange)="changed()"
+            color="primary"></ion-checkbox>
+      </ion-item> 
+    <button ion-button icon-left type="submit" [disabled]="!canRegister()" 
+        (click)="pressedRegister()">
+      <ion-icon name="log-in"></ion-icon>
+      {{ 'NEWUSER.REGISTER' | translate }}
+    </button>
+
+</ion-content>

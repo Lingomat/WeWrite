@@ -11,6 +11,9 @@ import { HomePage } from '../pages/home/home'
 import { TabsPage } from '../pages/tabs/tabs'
 import { SignInPage } from '../pages/sign-in/sign-in'
 import { ErrorPage } from '../pages/error/error'
+import { NewUserPage } from '../pages/new-user/new-user'
+// Components
+import { LocaleFabComponent } from '../components/locale-fab/locale-fab'
 // Providers
 import { AuthService } from '../providers/auth'
 import { DataService } from '../providers/data'
@@ -42,7 +45,9 @@ export function translateFactory(http: Http) {
     ContactPage,
     HomePage,
     TabsPage,
-    SignInPage
+    SignInPage,
+    NewUserPage,
+    LocaleFabComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp, ionicConfig),
@@ -59,7 +64,8 @@ export function translateFactory(http: Http) {
     ContactPage,
     HomePage,
     TabsPage,
-    SignInPage
+    SignInPage,
+    NewUserPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

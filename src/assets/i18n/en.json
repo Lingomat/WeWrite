@@ -10,5 +10,21 @@
   },
   "SIGNIN": {
     "TITLE": "Sign In"
+  },
+   "NEWUSER": {
+    "TITLE": "Please register",
+    "SELECTUSER": "Select a user name",
+    "REGISTER": "Register",
+    "USERNAME": "Username",
+    "TERMSHEAD": "By checking this box you agree that:",
+    "TERMS1": "Any content that you create and publicly share using Zahwa is made available under the Creative Commons Attribution Non Commercial 3.0 Unported License (CC-BY-NC 3.0).",
+    "TERMS2": "You will buy snacks for overworked PhD students.",
+    "AGREE": "Accept terms."
+  },
+  "HOME": {
+    "TITLE": "Welcome Wabbits to We Write!",
+    "HEADING": "This is a Serious App",
+    "TEXT1": "For very serious people doing serious things. Make no mistake.",
+    "TEXT2": "So we should probably make it do something no?"
   }
 }
