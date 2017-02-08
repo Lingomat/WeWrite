@@ -1,0 +1,47 @@
+page-sign-in {
+  overflow: hidden;
+
+  .offlineicon {
+    // background: url(../assets/img/offline.svg) no-repeat top left;
+    width: 100%;
+    margin: 0 auto 0 auto;
+    fill: color($colors, primary);
+    filter: drop-shadow( 2px 2px 3px color($colors, dark) );
+  }
+  .center2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width:75%;
+  }
+  .insidecontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .textlines {
+      text-align: center;
+    }
+  }
+
+// This is a beutiful hack if I do say so myself :)
+// One cannot style background SVG fill values in CSS...
+// But what we can do is embed the whole thing as a data URL
+// ... and insert SCSS variables. Note, it's easier to make this
+// ... work if you uri encode the SVG.
+  .backgroundlogin {
+    background-size: 100% 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0.6;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20id%3D%22Capa_1%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20505%20499.1%22%20%20preserveAspectRatio%3D%22none%22%20width%3D%22512px%22%20height%3D%22512px%22%3E%0A%3Cg%3E%0A%09%3Cg%3E%0A%09%09%3Cg%3E%0A%09%09%09%3Cpath%20d%3D%22M0%2C249.6c0%2C9.5%2C7.7%2C17.2%2C17.2%2C17.2h327.6l-63.9%2C63.8c-6.7%2C6.7-6.7%2C17.6%2C0%2C24.3c3.3%2C3.3%2C7.7%2C5%2C12.1%2C5s8.8-1.7%2C12.1-5%20%20%20%20%20l93.1-93.1c6.7-6.7%2C6.7-17.6%2C0-24.3l-93.1-93.1c-6.7-6.7-17.6-6.7-24.3%2C0c-6.7%2C6.7-6.7%2C17.6%2C0%2C24.3l63.8%2C63.8H17.2%20%20%20%20%20C7.7%2C232.5%2C0%2C240.1%2C0%2C249.6z%22%20%0A%20%20%20%20%20%20
+    fill%3D%22#{color($colors, primary)}%22%20%20%20%2F%3E%0A%09%09%09%3Cpath%20d%3D%22M396.4%2C494.2c56.7%2C0%2C102.7-46.1%2C102.7-102.8V107.7C499.1%2C51%2C453%2C4.9%2C396.4%2C4.9H112.7C56%2C4.9%2C10%2C51%2C10%2C107.7V166%20%20%20%20%20c0%2C9.5%2C7.7%2C17.1%2C17.1%2C17.1c9.5%2C0%2C17.2-7.7%2C17.2-17.1v-58.3c0-37.7%2C30.7-68.5%2C68.4-68.5h283.7c37.7%2C0%2C68.4%2C30.7%2C68.4%2C68.5v283.7%20%20%20%20%20c0%2C37.7-30.7%2C68.5-68.4%2C68.5H112.7c-37.7%2C0-68.4-30.7-68.4-68.5v-57.6c0-9.5-7.7-17.2-17.2-17.2S10%2C324.3%2C10%2C333.8v57.6%20%20%20%20%20c0%2C56.7%2C46.1%2C102.8%2C102.7%2C102.8H396.4L396.4%2C494.2z%22%20%0A%20%20%20%20%20%20
+    fill%3D%22#{color($colors, primary)}
+    %22%20%20%20%2F%3E%0A%09%09%3C%2Fg%3E%0A%09%3C%2Fg%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A')
+  }
+
+}
+

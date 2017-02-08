@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'SIGNIN.TITLE' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding style="overflow:hidden">
+    <div class="backgroundlogin">
+    </div>
+    <div class="center2">
+      <div class="col">
+        <button full icon-left ion-button color="google" style="margin-bottom:20px"
+            (click)="loginWith($event, 'google')">
+          <ion-icon color="#3b5998" name="logo-google"></ion-icon>
+          Google
+        </button>
+        <button full icon-left ion-button color="facebook" 
+            (click)="loginWith($event, 'facebook')">
+          <ion-icon name="logo-facebook"></ion-icon>
+          Facebook
+        </button>
+      </div>
+    </div>
+</ion-content>

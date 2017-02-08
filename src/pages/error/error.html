@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons end>
+      <button ion-button>
+        <ion-icon name="sad" color="white"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ errorType | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding *ngIf="errorType">
+  <h4 *ngIf="errorTrans" class="errorTranslate">{{ errorTrans | translate }}</h4>
+  <p *ngIf="errorRaw" class="errorText">{{errorRaw}}</p>
+    <button ion-button full (click)="pressedOK()">
+    {{ 'OK' | translate }}
+  </button>
+</ion-content>

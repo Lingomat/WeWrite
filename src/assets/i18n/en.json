@@ -1,0 +1,14 @@
+{
+  "TEST": {
+    "HELLO": "G'day"
+  },
+  "ERROR": {
+    "SIGNIN": "Sign in error!",
+    "GPS": "Geolocation error!",
+    "MESSAGE": "Error message:",
+    "MICROPHONE": "Could not access microphone"
+  },
+  "SIGNIN": {
+    "TITLE": "Sign In"
+  }
+}
