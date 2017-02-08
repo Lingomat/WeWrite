@@ -14,6 +14,8 @@ import { ErrorPage } from '../pages/error/error'
 import { NewUserPage } from '../pages/new-user/new-user'
 // Components
 import { LocaleFabComponent } from '../components/locale-fab/locale-fab'
+import { WavesurferComponent } from '../components/wavesurfer/wavesurfer'
+import { AudiocontrolComponent } from '../components/audiocontrol/audiocontrol'
 // Providers
 import { AuthService } from '../providers/auth'
 import { DataService } from '../providers/data'
@@ -47,7 +49,9 @@ export function translateFactory(http: Http) {
     TabsPage,
     SignInPage,
     NewUserPage,
-    LocaleFabComponent
+    LocaleFabComponent,
+    WavesurferComponent,
+    AudiocontrolComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp, ionicConfig),

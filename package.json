@@ -28,6 +28,7 @@
     "ng2-translate": "^5.0.0",
     "rxjs": "5.0.0-beta.12",
     "sw-toolbox": "3.4.0",
+    "wavesurfer.js": "^1.3.1",
     "zone.js": "0.6.26"
   },
   "devDependencies": {
@@ -43,5 +44,8 @@
     "cordova-plugin-splashscreen"
   ],
   "cordovaPlatforms": [],
-  "description": "We Write: An Ionic project"
+  "description": "We Write: An Ionic project",
+  "config": {
+    "ionic_copy": "./scripts/copy.config.js"
+  }
 }

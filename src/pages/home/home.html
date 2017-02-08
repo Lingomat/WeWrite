@@ -12,4 +12,8 @@
   <p>
     {{ 'HOME.TEXT2' | translate }}
   </p>
+
+  <wavesurfer [timeline]="false" [minimap]="false" (initialise)="wavesurferInit($event)"></wavesurfer>
+  <audiocontrol *ngIf="wavesurfer" [wavesurfer]="wavesurfer"></audiocontrol>
+
 </ion-content>

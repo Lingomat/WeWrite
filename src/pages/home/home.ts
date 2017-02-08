@@ -7,9 +7,14 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  wavesurfer: any = null
   constructor(public navCtrl: NavController) {
 
   }
+
+  wavesurferInit(event: any) {
+    this.wavesurfer = event.wavesurfer
+  }
+
 
 }
