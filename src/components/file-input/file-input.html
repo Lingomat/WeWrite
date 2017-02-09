@@ -1,0 +1,7 @@
+
+<button ion-button icon-left (click)="openDialog()">
+  <ion-icon [name]="buttonicon"></ion-icon>
+  {{ buttontext | translate }}
+</button>
+
+<input #fileinput type="file" [multiple]="multiple" [accept]="acceptstring" (change)="fileChange($event)"/>

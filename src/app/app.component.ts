@@ -11,7 +11,6 @@ import { NewUserPage } from '../pages/new-user/new-user'
   template: '<ion-nav #myNav></ion-nav>'
 })
 export class MyApp {
-  rootPage = TabsPage
   @ViewChild('myNav') nav: NavController
   constructor(
     private translate: TranslateService,
@@ -19,8 +18,12 @@ export class MyApp {
     translate.addLangs(['en'])
     translate.setDefaultLang('en')
   }
-  
+
   ngOnInit(): void {
+    this.nav.setRoot(TabsPage)
+  }
+  
+  ngOnInit2(): void {
     this.authService.authEvents.subscribe((status) => {
       if (status === 'noUser') {
         this.nav.setRoot(SignInPage)

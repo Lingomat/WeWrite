@@ -26,5 +26,9 @@
     "HEADING": "This is a Serious App",
     "TEXT1": "For very serious people doing serious things. Make no mistake.",
     "TEXT2": "So we should probably make it do something no?"
+  },
+  "FILEINPUT": {
+    "SELECT1": "Select File",
+    "SELECTMANY": "Select Files"
   }
 }

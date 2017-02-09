@@ -13,7 +13,15 @@
     {{ 'HOME.TEXT2' | translate }}
   </p>
 
-  <wavesurfer [timeline]="false" [minimap]="false" (initialise)="wavesurferInit($event)"></wavesurfer>
+  <!-- This wrapper for wavesurfer takes timeline and minimap booleans to enable those plug-ins, note timeline is bugged
+        Accepts audiourl or audioblob inputs, on load will fire (initialise) with $event as {wavesurfer: WaveSurfer instance}
+        ... also accepts [options], see Wavesurfer documentation -->
+  <wavesurfer [audiourl]="wsaudiourl" [audioblob]="wsaudioblob" [timeline]="false" [minimap]="false" (initialise)="wavesurferInit($event)"></wavesurfer>
+
+  <!--This audio control must be passed the wavesurfer instance that comes back from wavsurfer (initialise)-->
   <audiocontrol *ngIf="wavesurfer" [wavesurfer]="wavesurfer"></audiocontrol>
+
+  <!--File input component, set filetype to image or audio. When user selects files, (selected) will fire with $event as {files: FileList}-->
+  <file-input filetype="audio" [multiple]="false" (selected)="filesSelected($event)"></file-input>
 
 </ion-content>

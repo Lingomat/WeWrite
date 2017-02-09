@@ -16,6 +16,7 @@ import { NewUserPage } from '../pages/new-user/new-user'
 import { LocaleFabComponent } from '../components/locale-fab/locale-fab'
 import { WavesurferComponent } from '../components/wavesurfer/wavesurfer'
 import { AudiocontrolComponent } from '../components/audiocontrol/audiocontrol'
+import { FileInputComponent } from '../components/file-input/file-input'
 // Providers
 import { AuthService } from '../providers/auth'
 import { DataService } from '../providers/data'
@@ -51,7 +52,8 @@ export function translateFactory(http: Http) {
     NewUserPage,
     LocaleFabComponent,
     WavesurferComponent,
-    AudiocontrolComponent
+    AudiocontrolComponent,
+    FileInputComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp, ionicConfig),
