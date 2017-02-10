@@ -53,10 +53,7 @@ export class WavesurferComponent {
       if (this.minimap) {
         this.initMinimap()
       }
-      // emit the wavesurfer instance the first time we load
-      if (!this.initialised) {
-        this.initialise.emit({wavesurfer: this.wavesurfer})
-      }
+      this.initialise.emit({wavesurfer: this.wavesurfer})
     })
     if (this.audiourl) {
       this.wavesurfer.load(this.audiourl)
