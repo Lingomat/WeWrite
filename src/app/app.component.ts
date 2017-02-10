@@ -19,11 +19,11 @@ export class MyApp {
     translate.setDefaultLang('en')
   }
 
-  ngOnInit(): void {
-    this.nav.setRoot(TabsPage)
-  }
+  // ngOnInit(): void {
+  //   this.nav.setRoot(TabsPage)
+  // }
   
-  ngOnInit2(): void {
+  ngOnInit(): void {
     this.authService.authEvents.subscribe((status) => {
       if (status === 'noUser') {
         this.nav.setRoot(SignInPage)
