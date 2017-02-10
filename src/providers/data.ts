@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
+import { Observable } from 'rxjs/Observable'
 import firebase from 'firebase'
 
 @Injectable()
@@ -162,4 +163,87 @@ export class DataService {
     }
     return firebase.database().ref('users/' + this.fbUser.uid)
   }
+
+  // Observer a firebase object, subscription emits values on changes
+  observeFirebaseObject(fbPath:  string): Observable<any> {
+    let ref = firebase.database().ref(fbPath)
+    return Observable.create((observer) => {
+      function onvalue(snapshot: firebase.database.DataSnapshot) {
+        observer.next(snapshot.val())
+      }
+      ref.on('value', onvalue)
+      return function() {
+        ref.off('value', onvalue)
+      }
+    })
+  }
+  // Observe a firebase array. subscription emits the mutated value of the array on changes
+  obeserveFirebaseArray(fbPath: string): Observable<any> {
+    let ref = firebase.database().ref(fbPath)
+    return Observable.create((observer) => {
+      let arr: any[] = []
+      function child_added(snapshot: firebase.database.DataSnapshot, prevChildKey: string) {
+        let child = snapshot.val()
+        let prevEntry = arr.findIndex((x) => {
+          return x.key === prevChildKey
+        })
+        arr.splice(prevEntry + 1, 0, child)
+        observer.next(arr.slice())
+      }
+      function child_changed(snapshot: firebase.database.DataSnapshot) {
+        let key = snapshot.key
+        let child = snapshot.val()
+        let x = arr.findIndex((y) => {
+          return key === y.key
+        })
+        arr[x] = child
+        observer.next(arr.slice())
+      }
+      function child_removed(snapshot: firebase.database.DataSnapshot) {
+        let key = snapshot.key
+        let child = snapshot.val()
+        let x = arr.findIndex((y) => {
+          return key === y.key
+        })
+        if (x) {
+          arr.splice(x, 1)
+        }
+        observer.next(arr.slice())
+      }
+      function child_moved(snapshot: firebase.database.DataSnapshot, prevChildKey: string) {
+        let key = snapshot.key
+        let child = snapshot.val()
+        // Remove from old slot
+        let x = arr.find((y) => {
+          return key === y.key
+        })
+        if (x) {
+          arr.splice(arr.indexOf(x), 1)
+        }
+        // Add in new slot
+        let prevEntry = arr.find((y) => {
+          return prevChildKey === y.key
+        })
+        if (prevEntry) {
+          arr.splice(arr.indexOf(prevEntry) + 1, 0, child)
+        } else {
+          arr.splice(0, 0, child);
+        }
+        observer.next(arr.slice())
+      }
+      observer.next(arr.slice())
+      ref.on('child_added', child_added)
+      ref.on('child_changed', child_changed)
+      ref.on('child_removed', child_removed)
+      ref.on('child_moved', child_moved)
+      return function() {
+        ref.off('child_added', child_added)
+        ref.off('child_changed', child_changed)
+        ref.off('child_removed', child_removed)
+        ref.off('child_moved', child_moved)
+      }
+    })
+  }
+
 }
+
