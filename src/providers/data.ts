@@ -227,7 +227,7 @@ export class DataService {
         if (prevEntry) {
           arr.splice(arr.indexOf(prevEntry) + 1, 0, child)
         } else {
-          arr.splice(0, 0, child);
+          arr.splice(0, 0, child)
         }
         observer.next(arr.slice())
       }

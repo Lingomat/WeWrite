@@ -17,6 +17,7 @@ import { LocaleFabComponent } from '../components/locale-fab/locale-fab'
 import { WavesurferComponent } from '../components/wavesurfer/wavesurfer'
 import { AudiocontrolComponent } from '../components/audiocontrol/audiocontrol'
 import { FileInputComponent } from '../components/file-input/file-input'
+import { LexicalInputComponent } from '../components/lexical-input/lexical-input'
 // Providers
 import { AuthService } from '../providers/auth'
 import { DataService } from '../providers/data'
@@ -53,7 +54,8 @@ export function translateFactory(http: Http) {
     LocaleFabComponent,
     WavesurferComponent,
     AudiocontrolComponent,
-    FileInputComponent
+    FileInputComponent,
+    LexicalInputComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp, ionicConfig),

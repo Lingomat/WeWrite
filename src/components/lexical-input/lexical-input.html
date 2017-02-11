@@ -1,0 +1,20 @@
+<h2>Lexical Input Component</h2>
+
+<div class="inputlinex">
+  <ion-item>
+    <ion-input [(ngModel)]="starttime" placeholder="Start time"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="endtime" placeholder="End time"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="annotation" placeholder="Annotation"></ion-input>
+  </ion-item>
+  <button ion-button
+    [disabled]="!isValid()"
+    (click)="submit()">Submit</button>
+
+</div>
+
